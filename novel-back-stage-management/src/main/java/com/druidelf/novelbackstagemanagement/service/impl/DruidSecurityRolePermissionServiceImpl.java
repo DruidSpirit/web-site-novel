@@ -1,0 +1,9 @@
+package com.druidelf.novelbackstagemanagement.service.impl;
+
+import com.druidelf.novelbackstagemanagement.entity.DruidSecurityRolePermission;
+import com.druidelf.novelbackstagemanagement.service.DruidSecurityRolePermissionService;
+import org.springframework.stereotype.Service;
+
+@Service
+public class DruidSecurityRolePermissionServiceImpl extends BaseService<DruidSecurityRolePermission> implements DruidSecurityRolePermissionService {
+}

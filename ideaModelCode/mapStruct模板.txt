@@ -1,0 +1,26 @@
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+#parse("File Header.java")
+import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.Mappings;
+import java.util.List;
+#if (${PROJECT_NAME} == "druidElf-N" )
+import com.druid.entity.${NAME}
+import com.druid.common.response.${NAME}Vm;
+#end
+#if (${PROJECT_NAME} == "yxd-app" )
+import com.lckjep.yxd.app.pojo.entity.${NAME};
+import com.lckjep.yxd.app.pojo.vm.${NAME}Vm;
+#end
+#if (${PROJECT_NAME} == "yxd-crm" )
+import com.lckjep.yxd.crm.pojo.entity.${NAME};
+import com.lckjep.yxd.crm.pojo.vm.${NAME}Vm;
+#end
+@Mapper(componentModel = "spring")
+public interface ${NAME}Mapstruct {
+    @Mappings({
+            @Mapping(source = "en${NAME}.id", target = "id")
+    })
+    ${NAME}Vm ${NAME}Transform (${NAME} en${NAME});
+    List<${NAME}Vm> ${NAME}TransformLList (List<${NAME}> en${NAME}List);
+}

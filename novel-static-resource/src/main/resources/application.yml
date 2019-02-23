@@ -1,0 +1,65 @@
+# server config
+server:
+    port: 8080
+
+##### 多环境配置文件激活属性
+spring:
+    profiles:
+        active: dev
+    #缓存配置
+    cache:
+        type: ehcache
+        redis:
+            #默认缓存生命周期
+            time-to-live: 3600s
+    redis:
+        database: 0
+        host: localhost
+        port: 6379
+        password:
+
+#spring根据名字新增默认缓存
+cache-manager-config:
+    ehcachePath: cache/ehcache.xml
+    cacheLists:
+        - test1
+        - test2
+        - test3
+
+# mybaits 配置
+mybatis:
+    type-aliases-package: com.druidelf.novelstaticresource.entity
+    mapper-locations: classpath:mapper/*.xml
+    #开启驼峰命名
+    configuration:
+        map-underscore-to-camel-case: true
+
+#声明式事物配置
+transaction-advice-config:
+    aop-pointcut-expression: execution (* com.druidelf.novelstaticresource.service.*.*(..))
+    selectPrefix:
+    - select*
+    - get*
+    - query*
+    - find*
+    - list*
+    - count*
+    - is*
+    changeDataPrefix:
+    - add*
+    - save*
+    - delete*
+    - update*
+    - exec*
+    - set*
+
+#swgger文档配置
+swagger:
+    enabled: true
+    title: druidElf小说网
+    description: druidElf小说网API文档
+    base-package:  com.druidelf.novelstaticresource
+    version: 1.0
+
+#开启配置报告
+debug: false

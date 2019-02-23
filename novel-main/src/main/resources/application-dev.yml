@@ -1,0 +1,59 @@
+#全局属性pom文件根路径
+bath-path: @pom.basedir@
+
+#开发环境服务器端口配置
+server:
+  port: 8087
+
+spring:
+  # 邮件发送配置
+  mail:
+    # smtp.sina.com
+    # smtp.163.com
+    # smtp.qq.com
+    host: smtp.sina.com
+    username: 填写你的邮箱账号
+    password: 填写你的邮箱密码
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+  # 数据源配置(这里的连接池和驱动都是采用JDBC默认的)
+  datasource:
+    url: jdbc:mysql://localhost/druid-novel?useUnicode=true&serverTimezone=GMT&characterEncoding=utf8&useSSL=false
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+mail:
+  fromMail:
+    addr: druid_elf_wang@sina.com
+
+#日志输出配置
+logging:
+  config: classpath:logging/log4j2-dev.yml
+
+#mvc设置
+web-mvc-config:
+  #跨域允许访问域名(默认所有域名都可以访问)
+  origins:
+  - http://192.168.2.192:8880
+  - http://192.168.2.129:8083
+  - http://192.168.2.221:8083
+  - http://192.168.2.206:8083
+  - http://192.168.2.106:8083
+  - http://192.168.2.104:8083
+  - http://192.168.2.104:9099
+  - http://192.168.123.223:8083
+  - http://192.168.123.223:9099
+
+#shiro配置
+shiro-config:
+  #会话超时时间
+  sessionLiveTime: 30m
+  #过滤链配置 anon可匿名，authc需认证
+  filterChainMaps:
+    logout: /logout
+    anon: /**

@@ -1,0 +1,9 @@
+package com.druidelf.novelbackstagemanagement.service.impl;
+
+import com.druidelf.novelbackstagemanagement.entity.DruidAdminFixDownLoadResource;
+import com.druidelf.novelbackstagemanagement.service.DruidAdminFixDownLoadResourceService;
+import org.springframework.stereotype.Service;
+
+@Service
+public class DruidAdminFixDownLoadResourceServiceImpl extends BaseService<DruidAdminFixDownLoadResource> implements DruidAdminFixDownLoadResourceService {
+}

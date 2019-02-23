@@ -1,0 +1,15 @@
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+#if (${PROJECT_NAME} == "druidElf-N" )import com.druid.entity.${NAME};#end
+#if (${PROJECT_NAME} == "yxd-app" )import com.lckjep.yxd.app.pojo.entity.${NAME};#end
+#if (${PROJECT_NAME} == "yxd-crm" )import com.lckjep.yxd.crm.pojo.entity.${NAME};#end
+#if (${PROJECT_NAME} == "druidElf-N" )import com.druid.service.${NAME}Service;#end
+#if (${PROJECT_NAME} == "yxd-app" )import com.lckjep.yxd.app.service.${NAME}Service;#end
+#if (${PROJECT_NAME} == "yxd-crm" )import com.lckjep.yxd.crm.service.${NAME}Service;#end
+#if (${PROJECT_NAME} == "novel-web-site" )
+import com.druidelf.novelmain.entity.${NAME};
+import com.druidelf.novelmain.service.${NAME}Service;
+#end
+import org.springframework.stereotype.Service;
+@Service
+public class ${NAME}ServiceImpl extends BaseService<${NAME}> implements ${NAME}Service{
+}

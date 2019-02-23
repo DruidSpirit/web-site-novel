@@ -1,0 +1,8 @@
+#if (${PACKAGE_NAME} && ${PACKAGE_NAME} != "")package ${PACKAGE_NAME};#end
+#parse("File Header.java")
+#if (${PROJECT_NAME} == "druidElf-N" )import com.druid.entity.${NAME};#end
+#if (${PROJECT_NAME} == "yxd-app" )import com.lckjep.yxd.app.pojo.entity.${NAME};#end
+#if (${PROJECT_NAME} == "yxd-crm" )import com.lckjep.yxd.crm.pojo.entity.${NAME};#end
+#if (${PROJECT_NAME} == "novel-web-site" )import com.druidelf.novelmain.entity.${NAME};#end
+public interface ${NAME}Service extends IService<${NAME}>{
+}

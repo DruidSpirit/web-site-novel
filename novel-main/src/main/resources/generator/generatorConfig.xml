@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <properties resource="application-dev.yml"/>
+    <context id="Mysql" targetRuntime="MyBatis3Simple" defaultModelType="flat">
+        <property name="beginningDelimiter" value="`"/>
+        <property name="endingDelimiter" value="`"/>
+        <property name="useMapperCommentGenerator" value="false"/>
+        <plugin type="com.druidelf.novelmain.gengerator.additionalPlugIn.LombokPlugin"/>
+
+        <plugin type="tk.mybatis.mapper.generator.MapperPlugin">
+            <property name="mappers" value="com.druidelf.novelmain.common.utils.extendFor.MyMapper"/>
+            <property name="caseSensitive" value="true"/>
+            <property name="lombok" value="Accessors"/>
+        </plugin>
+
+        <plugin type="com.druidelf.novelmain.gengerator.additionalPlugIn.SerializableAndUUIdPlugin"/>
+        <!-- 使用自定义的插件 -->
+        <commentGenerator type="com.druidelf.novelmain.gengerator.additionalPlugIn.MyCommentGenerator">
+        </commentGenerator>
+        <jdbcConnection driverClass="${driver-class-name}"
+                        connectionURL="${url}"
+                        userId="${username}"
+                        password="${password}">
+            <property name="useInformationSchema" value="true"/>
+        </jdbcConnection>
+
+        <javaModelGenerator targetPackage="com.druidelf.novelmain.entity" targetProject="${bath-path}/src/main/java"/>
+
+        <sqlMapGenerator targetPackage="mapper" targetProject="${bath-path}/src/main/resources"/>
+
+        <javaClientGenerator targetPackage="com.druidelf.novelmain.mapper" targetProject="${bath-path}/src/main/java"
+                             type="XMLMAPPER"/>
+
+        <!--用户表-->
+        <table tableName="druid_user">
+            <generatedKey column="id" sqlStatement="JDBC" identity="true" />
+        </table>
+        <!--角色权限表-->
+        <table tableName="druid_security_role_permission">
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        <!--小说主表-->
+        <table tableName="druid_novel_resource">
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        <!--权限表-->
+        <table tableName="druid_security_permission">
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        <!--角色表-->
+        <table tableName="druid_security_role">
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        <!--首页导航栏表-->
+        <table tableName="druid_website_navigation">
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+        <!--信息发送记录表-->
+        <table tableName="druid_send_code_record">
+            <generatedKey column="id" sqlStatement="JDBC"/>
+        </table>
+    </context>
+</generatorConfiguration>
